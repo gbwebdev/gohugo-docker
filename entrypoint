@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -t 0 ]
+then
+    echo 'Starting an interactive shell' 
+    /bin/bash --init-file /etc/profile.d/bash_completion.sh
+else
+    if ! ls /mnt/workdir/config.* 1> /dev/null 2>&1; then
+        echo "files do not exist"
+        hugo new site /mnt/workdir -f "$FORMAT"
+    fi
+
+    exec hugo server --bind 0.0.0.0 -D --disableFastRender
+fi
