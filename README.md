@@ -19,6 +19,8 @@ When inside your project directory, you can simply run :
 docker run -v $(pwd):/mnt/workdir -p 1313:1313 gbwebdev/gohugo
 ```
 
+If the project is not setup yet, it will be setup automatically.
+
 Then simply browse to `http://localhost:1313`.
 
 ### Use the CLI
@@ -34,6 +36,5 @@ When inside your project directory, you can simply run :
 docker run -v $(pwd):/mnt/workdir [-p 1313:1313]  -it gbwebdev/gohugo entrypoint
 ```
 
-If the project is not setup yet, it will be setup automatically.
 
 You can use the `FORMAT` environment variable to choose the configuration files format (by default it is "yaml").
