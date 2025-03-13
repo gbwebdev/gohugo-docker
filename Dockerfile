@@ -1,6 +1,6 @@
-FROM golang:1.18.2-alpine3.15 AS builder
+FROM golang:1.24.1-alpine3.21 AS builder
 
-ARG HUGO_VERSION=0.99.0
+ARG HUGO_VERSION=0.145.0
 
 RUN mkdir /build \
     && apk add build-base \
@@ -12,7 +12,7 @@ WORKDIR /build
 RUN go build -ldflags="-extldflags=-static" --tags extended
 
 
-FROM alpine:3.15
+FROM alpine:3.21
 
 
 ENV FORMAT="yaml"
